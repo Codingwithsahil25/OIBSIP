@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 300px;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        label, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registration</h2>
+        <form id="register-form" style="display: block;">
+            <label for="register-username">Username</label>
+            <input type="text" id="register-username" name="register-username" required>
+
+            <label for="register-password">Password</label>
+            <input type="password" id="register-password" name="register-password" required>
+
+            <label for="register-name">Full Name</label>
+            <input type="text" id="register-name" name="register-name" required>
+
+            <input type="submit" value="Register">
+        </form>
+
+        <h2>Login</h2>
+        <form id="login-form" style="display: none;">
+            <label for="login-username">Username</label>
+            <input type="text" id="login-username" name="login-username" required>
+
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" name="login-password" required>
+
+            <input type="submit" value="Login">
+        </form>
+
+        <div id="welcome" style="display: none;">
+            <h2>Welcome!</h2>
+            <p>You are now logged in.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("register-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            // Add registration logic here (e.g., send data to server).
+            // After successful registration, you can hide the registration form and show the login form.
+            document.getElementById("register-form").style.display = "none";
+            document.getElementById("login-form").style.display = "block";
+        });
+
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            // Add login logic here (e.g., validate credentials and redirect to the landing page on success).
+            // For this example, we're just showing the welcome message.
+            document.getElementById("login-form").style.display = "none";
+            document.getElementById("welcome").style.display = "block";
+        });
+    </script>
+</body>
+</html>
